@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.Files;
 
 import com.github.dozermapper.core.AbstractDozerTest;
 import com.github.dozermapper.core.MappingException;
@@ -46,7 +47,7 @@ public class ResourceLoaderTest extends AbstractDozerTest {
     @Test
     public void testGetResource_FileOutsideOfClasspath() throws Exception {
         // Create temp file.
-        File temp = File.createTempFile("dozerfiletest", ".txt");
+        File temp = Files.createTempFile("dozerfiletest", ".txt").toFile();
 
         // Delete temp file when program exits.
         temp.deleteOnExit();
